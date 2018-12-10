@@ -12,7 +12,7 @@ public class Award {
     @Id
     private String id;
     private LocalDateTime dateTime;
-    private String judgeName;
+    private String userId;
     private String teamName;
     private Integer addScore;
 }

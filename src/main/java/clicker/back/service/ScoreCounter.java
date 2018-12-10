@@ -24,28 +24,26 @@ public class ScoreCounter {
     private final AwardRepository awardRepository;
 
     public GameScore getGameScore() {
-        //todo implement score count
-        List<Award> all = awardRepository.findAll();
 
+        long griffindorScore = getTeamScore("griffindor");
+        long slytherinScore = getTeamScore("slytherin");
+        long hufflepuffScore = getTeamScore("hufflepuff");
+        long ravenclawScore = getTeamScore("ravenclaw");
 
-        LocalDateTime now = LocalDateTime.now();
-
-        Award award = new Award();
-        award.setDateTime(now);
-        award.setAddScore(10);
-        Award save = awardRepository.save(award);
-
-        Award byDateTimeEqualsAndAddScore = awardRepository.findByDateTimeEqualsAndAddScore(now, 10);
-
-
-        log.trace(byDateTimeEqualsAndAddScore);
-
-        //Mock now
         GameScore gameScore = new GameScore();
-        gameScore.addTeam(new Team("Team1", (int) (Math.random()*100)));
-        gameScore.addTeam(new Team("Team2", (int) (Math.random()*100)));
-        gameScore.addTeam(new Team("Team3", (int) (Math.random()*100)));
+        gameScore.addTeam(new Team("griffindor", griffindorScore));
+        gameScore.addTeam(new Team("slytherin", slytherinScore));
+        gameScore.addTeam(new Team("hufflepuff", hufflepuffScore));
+        gameScore.addTeam(new Team("ravenclaw", ravenclawScore));
 
         return gameScore;
+    }
+
+    private long getTeamScore(String teamName) {
+        List<Award> all = awardRepository.findAll();
+        return all.stream()
+                //TODO :: add judge auth filter?
+                .filter(award -> teamName.equals(award.getTeamName()))
+                .count();
     }
 }

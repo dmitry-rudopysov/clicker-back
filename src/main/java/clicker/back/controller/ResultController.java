@@ -21,5 +21,4 @@ public class ResultController {
     public GameScore getScore() {
         return scoreCounter.getGameScore();
     }
-
 }

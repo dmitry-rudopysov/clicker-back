@@ -11,5 +11,5 @@ public class Team {
 
     @Id
     private String name;
-    private Integer score;
+    private Long score;
 }
