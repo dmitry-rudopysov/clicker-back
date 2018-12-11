@@ -44,6 +44,8 @@ public class ScoreCounter {
         return all.stream()
                 //TODO :: add judge auth filter?
                 .filter(award -> teamName.equals(award.getTeamName()))
-                .count();
+                .map(Award::getAddScore)
+                .reduce((a1, a2)-> a1 + a2)
+                .orElse(0);
     }
 }

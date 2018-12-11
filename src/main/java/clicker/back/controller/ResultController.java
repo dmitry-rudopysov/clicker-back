@@ -1,13 +1,13 @@
 package clicker.back.controller;
 
-import clicker.back.model.Award;
 import clicker.back.model.GameScore;
 import clicker.back.service.ScoreCounter;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor(onConstructor=@__(@Autowired))

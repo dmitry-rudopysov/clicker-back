@@ -22,6 +22,7 @@ public class AwardController {
     @NonNull
     private AwardRepository awardRepository;
 
+    @CrossOrigin(origins = "http://localhost:8089")
     @PostMapping("/addAward")
     public ResponseEntity greeting(@RequestBody Award award) {
 

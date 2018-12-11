@@ -6,5 +6,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.time.LocalDateTime;
 
 public interface AwardRepository extends MongoRepository<Award, String> {
-    Award findByDateTimeEqualsAndAddScore(LocalDateTime localDateTime, Integer score);
+
 }
