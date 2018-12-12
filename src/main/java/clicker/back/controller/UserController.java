@@ -15,13 +15,13 @@ public class UserController {
     @NonNull
     private final UserService userService;
 
-    @CrossOrigin(origins = "http://localhost:8089")
+
     @GetMapping("getUserMark")
     public Integer getUserMark(@RequestParam String uid) {
         return userService.getMark(uid);
     }
 
-    @CrossOrigin(origins = "http://localhost:8089")
+
     @PostMapping("registerUser")
     public ResponseEntity registerUser(@RequestBody User user) {
         userService.registerUser(user);
